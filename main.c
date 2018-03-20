@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+//#include <unistd.h>
 
 int cont = 1;
 
@@ -9,7 +9,7 @@ char* ReadFile(char *filename)
 {
    char *buffer = NULL;
    int string_size, read_size;
-   FILE *handler = fopen(filename, "r");
+   FILE *handler = fopen(filename, "rb");
    
 
    if (handler)
@@ -99,9 +99,19 @@ void getCommand()
 		
 		
 	}
+	else if(strncmp(input,"ELEM-H",12) == 0 || strncmp(input,"elem-h",12) == 0)
+	{
+		system("clear");
+		char *string = ReadFile("./db/Hydrogen.txt");
+		if (string)
+		{
+			puts(string);
+			free(string);
+		}
+	}
 	else if(strncmp(input,"EXIT",12) == 0 || strncmp(input,"exit",12) == 0)
 	{
-		printf("Thank you for using the TARDIS INFORMATION SYSTEM");
+		printf("Thank you for using the TARDIS \nINFORMATION SYSTEM");
 		cont = 0;
 	}
 }
