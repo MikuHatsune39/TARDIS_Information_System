@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 int cont = 1;
 
@@ -56,17 +57,18 @@ void StartPage()
     }
     //char enterkey[1];
     //scanf("%s", enterkey);
-    getchar();
-    system("clear");
+    //sleep(1);
+    //getchar();
+    //system("clear");
     //printf("> ");
 }
 
 void getCommand()
 {
 	printf("> ");
-	char input[4];
+	char input[12];
 	scanf("%s", input);
-	if(strncmp(input,"IF",4) == 0 || strncmp(input,"if",4) == 0)
+	if(strncmp(input,"IF",12) == 0 || strncmp(input,"if",12) == 0)
 	{
 		system("clear");
 		char *string = ReadFile("./db/IF.txt");
@@ -77,7 +79,27 @@ void getCommand()
 		}
 		//getCommand();
 	}
-	else if(strncmp(input,"EXIT",4) == 0 || strncmp(input,"exit",4) == 0)
+	else if(strncmp(input,"START",12) == 0 || strncmp(input,"start",12) == 0)
+	{
+		
+		system("clear");
+		/*
+		char *string = ReadFile("./db/StartScreen.txt");
+		if (string)
+		{
+			puts(string);
+			free(string);
+		}
+		*/
+		StartPage();
+		//sleep(1);
+		char c = getchar(); 
+		while ((c = getchar()) != '\n' && c != EOF) { }
+		system("clear");
+		
+		
+	}
+	else if(strncmp(input,"EXIT",12) == 0 || strncmp(input,"exit",12) == 0)
 	{
 		printf("Thank you for using the TARDIS INFORMATION SYSTEM");
 		cont = 0;
@@ -87,6 +109,8 @@ void getCommand()
 int main()
 {
     StartPage();
+    getchar();
+    system("clear");
     
     while(cont == 1)
     {
