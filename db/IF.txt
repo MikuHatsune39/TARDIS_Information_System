@@ -11,4 +11,4 @@ EXIT - Exit
 
 IF - Index File
 
-ELEM-H - Hydrogen
+HYDROGEN - Hydrogen

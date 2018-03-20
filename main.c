@@ -99,7 +99,7 @@ void getCommand()
 		
 		
 	}
-	else if(strncmp(input,"ELEM-H",12) == 0 || strncmp(input,"elem-h",12) == 0)
+	else if(strncmp(input,"HYDROGEN",12) == 0 || strncmp(input,"hydrogen",12) == 0)
 	{
 		system("clear");
 		char *string = ReadFile("./db/Hydrogen.txt");
