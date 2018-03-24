@@ -109,6 +109,16 @@ void getCommand()
 			free(string);
 		}
 	}
+	else if(strncmp(input,"AC",12) == 0 || strncmp(input,"ac",12) == 0)
+	{
+		system("clear");
+		char *string = ReadFile("./db/AmbientComplexity.txt");
+		if (string)
+		{
+			puts(string);
+			free(string);
+		}
+	}
 	else if(strncmp(input,"EXIT",12) == 0 || strncmp(input,"exit",12) == 0)
 	{
 		printf("Thank you for using the TARDIS \nINFORMATION SYSTEM");
