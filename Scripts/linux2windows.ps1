@@ -1,0 +1,1 @@
+﻿(Get-Content "main.c") | Set-Content "main.c"
